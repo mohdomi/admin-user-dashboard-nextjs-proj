@@ -81,7 +81,7 @@ export default function ProfileForm() {
     
     return (
 
-        <div className="h-screen w-full flex justify-center m-5 mt-10 p-5">        
+        <div className="h-screen w-full flex justify-center m-2 md:m-5 mt-10 p-1 md:p-5">        
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-1/2">
             <FormField

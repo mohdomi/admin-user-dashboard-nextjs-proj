@@ -94,7 +94,7 @@ export function SignForm({
                     href="#"
                     className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
                   >
-                    Forgot your password?
+                  
                   </a>
                 </div>
                 <Input onChange={(e) => {
@@ -103,7 +103,7 @@ export function SignForm({
               </div>
               <div className="flex flex-col gap-3">
                 <Button onClick={(e) => SignUpAuth(e)} type="submit" className="w-full">
-                  Login
+                  Signup
                 </Button>
                 <Button onClick={async () => {
                   const {userId} = await OAuth();
@@ -116,7 +116,7 @@ export function SignForm({
 
 
                 }} variant="outline" className="w-full">
-                  Login with Google
+                  Signup with Google
                 </Button>
               </div>
             </div>

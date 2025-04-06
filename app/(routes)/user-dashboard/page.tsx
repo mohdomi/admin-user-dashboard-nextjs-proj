@@ -5,7 +5,7 @@ export default function UserDashboard(){
 
 
     return(
-        <div>
+        <div className="w-full">
             <ProfileForm />
         </div>
     )
