@@ -19,7 +19,7 @@ const Landing = () => {
                 {/* Adjusted header text color for light background */}
                 <h1 className="text-3xl sm:text-6xl font-bold text-gray-800 tracking-tight">
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-neutral-600 to-blue-200">
-                        Friend Book
+                        FriendBook
                     </span>
                 </h1>
             </header>
