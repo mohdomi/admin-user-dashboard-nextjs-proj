@@ -1,7 +1,20 @@
+'use client'
+import { useEffect } from "react"
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 
 
 export default function Submit(){
+
+    const router = useRouter();
+
+    useEffect(()=>{
+        toast("Redirecting to Landing Page...")
+        setTimeout(()=>{
+            router.push('/landing-page')
+        } , 5000)
+    } , []);
 
 
     return(<div className="h-screen flex justify-center items-center">

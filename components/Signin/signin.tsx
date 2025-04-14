@@ -14,6 +14,8 @@ import { Label } from "@/components/Signup/ui/label"
 import React, { FormEvent, useEffect, useState } from "react"
 import OAuth from "@/app/api/firebaseAuth/GoogleOAuth"
 import { useRouter } from "next/navigation"
+import { toast } from "sonner"
+
 
 export function SignInForm({
   className,
@@ -38,15 +40,19 @@ export function SignInForm({
         
         try{
 
+          toast("Loading please wait..." , {
+            duration:Infinity
+          });
+
           const response = await axios.post("/api/signin" , {
             email , password
           })
 
           console.log(JSON.stringify(response.data));
 
-          setToken(response.data.token);
+          setToken(response.data.userId);
           if(response.data.success){
-
+            toast.dismiss()  
             if(response.data.isAdmin !== null){
               router.push("/admin-dashboard");
             }else{

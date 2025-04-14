@@ -14,6 +14,7 @@ import { Label } from "@/components/Signup/ui/label"
 import React, { useState, FormEvent, useEffect } from "react"
 import OAuth from "@/app/api/firebaseAuth/GoogleOAuth"
 import { useRouter } from "next/navigation"
+import { toast } from "sonner"
 
 
 
@@ -39,7 +40,9 @@ export function SignForm({
 
     e.preventDefault();
     try {
-
+      toast("Loading please wait..." , {
+        duration:Infinity
+      });
       const response = await axios.post("/api/signup", {
         email, password
       })
@@ -49,6 +52,7 @@ export function SignForm({
       if (response.data.status) {
         console.log(JSON.stringify(response.data.status));        
         setToken(response.data.userId);
+        toast.dismiss()
         router.push("/user-dashboard");
       }
 

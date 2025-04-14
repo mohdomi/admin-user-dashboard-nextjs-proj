@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({
                 success : true , 
                 isAdmin,
-                userId : ""
+                userId : "Admin"
             })
         }
         
@@ -34,7 +34,8 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json({
             success : true,
-            userId
+            userId, 
+            isAdmin: null
         })
 
     }

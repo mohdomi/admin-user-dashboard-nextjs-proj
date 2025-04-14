@@ -15,6 +15,7 @@ import {
 import { Input } from "@/components/ui/input"
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
+import { toast } from 'sonner'
 
 
 const formSchema = z.object({
@@ -57,11 +58,16 @@ export default function ProfileForm() {
 
     async function onSubmit(values: formSchemaType){
 
+      toast("Please Wait..." , {
+        duration:Infinity
+      });
+
        try
        { const response = await axios.post('api/user_dashboard' , values);
 
             console.log(response.data);
             if(response.data.success){
+              toast.dismiss();
                 router.push("/submit");
             }
 
