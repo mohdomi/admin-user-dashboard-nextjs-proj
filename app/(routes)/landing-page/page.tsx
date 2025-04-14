@@ -17,9 +17,9 @@ const Landing = () => {
         <div className="min-h-screen p-4 sm:p-8">
             <header className="w-full flex justify-center py-4">
                 {/* Adjusted header text color for light background */}
-                <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 tracking-tight">
-                    <span className="text-5xl bg-clip-text text-transparent bg-gradient-to-r from-neutral-600 to-blue-200">
-                        FriendBook
+                <h1 className="text-3xl sm:text-6xl font-bold text-gray-800 tracking-tight">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-neutral-600 to-blue-200">
+                        Friend Book
                     </span>
                 </h1>
             </header>
