@@ -186,12 +186,12 @@ sudo apt-get install -f
 
    ```env
    # Firebase Configuration
-   NEXT_PUBLIC_FIREBASE_API_KEY=your-api-key
-   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-auth-domain
-   NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
-   NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-storage-bucket
-   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
-   NEXT_PUBLIC_FIREBASE_APP_ID=your-app-id
+   NEXT_PUBLIC_apiKey=your-api-key
+   NEXT_PUBLIC_authDomain=your-auth-domain
+   NEXT_PUBLIC_projectId=your-project-id
+   NEXT_PUBLIC_storageBucket=your-storage-bucket
+   NEXT_PUBLIC_messagingSenderId=your-messaging-sender-id
+   NEXT_PUBLIC_appId=your-app-id
 
    # MongoDB Configuration
    DATABASE_URL="mongodb+srv://username:password@cluster.mongodb.net/dbname?retryWrites=true&w=majority"
