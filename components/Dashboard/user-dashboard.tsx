@@ -27,7 +27,8 @@ const formSchema = z.object({
     branch : z.string().min(3).max(50),
     batch : z.string(),
     semester : z.string(),
-    email : z.string().email()
+    email : z.string().email(),
+    accepted : z.boolean().optional()
 
 
 })

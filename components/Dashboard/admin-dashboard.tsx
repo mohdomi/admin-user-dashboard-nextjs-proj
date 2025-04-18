@@ -14,6 +14,7 @@ import { formSchemaType } from "./user-dashboard";
 
 export default function AdminDashboardTable() {
   const [userArray, setUserArray] = useState<formSchemaType[]>([]);
+  const [collegeRollNo , setCollegeRollNo] = useState<string>("");
 
   useEffect(() => {
     async function fetchDashboardData() {
@@ -27,12 +28,23 @@ export default function AdminDashboardTable() {
     fetchDashboardData();
   }, []);
 
+  async function AcceptFalse() {
+    try {
+      await axios.post("/api/accept-users", {
+        college_roll_no: collegeRollNo,
+        accepted : false
+      });
+    } catch (error) {
+      console.error("Error accepting user:", error);
+    }
+  }
+
   console.log(userArray);
 
   return (
     <div className="overflow-none">
       <div className="w-full flex justify-center m-5 ">
-      <h1 className="text-4xl font-bold">Admin Dashboard</h1>
+      <h1 className="text-4xl font-bold">My Friend List</h1>
       </div>
     <Table>
       <TableCaption>List of all the users in the dashboard.</TableCaption>
@@ -46,11 +58,13 @@ export default function AdminDashboardTable() {
           <TableHead className="text-right">Batch</TableHead>
           <TableHead className="text-right">Semester</TableHead>
           <TableHead className="text-right">Email</TableHead>
+          <TableHead className="text-right">Remove</TableHead>
+
 
         </TableRow>
       </TableHeader>
       <TableBody>
-        {userArray.map((user) => (
+        {userArray.filter(user => user.accepted).map((user) => (
           <TableRow key={user.college_roll_no}>
             <TableCell className="font-medium">{user.firstname}</TableCell>
             <TableCell className="font-medium">{user.lastname}</TableCell>
@@ -60,6 +74,12 @@ export default function AdminDashboardTable() {
             <TableCell className="text-right">{user.batch}</TableCell>
             <TableCell className="text-right">{user.semester}</TableCell>
             <TableCell className="text-right">{user.email}</TableCell>
+            <td className="text-right"><button onClick={()=>{
+                  setCollegeRollNo(user.college_roll_no);
+                  AcceptFalse();
+              }} className="m-1 p-1 bg-red-500 hover:cursor-pointer hover:bg-red-700 rounded-lg">Remove</button>
+              </td>
+
 
           </TableRow>
         ))}

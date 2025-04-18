@@ -25,6 +25,7 @@ model User {
   batch String
   semester String
   email String @unique
+  accepted Boolean @default(false)
 }
 
 
