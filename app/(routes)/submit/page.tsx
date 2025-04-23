@@ -14,7 +14,7 @@ export default function Submit(){
         setTimeout(()=>{
             router.push('/landing-page')
         } , 5000)
-    } , []);
+    } , [router]);
 
 
     return(<div className="h-screen flex justify-center items-center">

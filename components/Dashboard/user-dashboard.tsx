@@ -18,22 +18,33 @@ import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 
 
+export type formSchemaType = {
+  firstname: string;
+  lastname: string;
+  college_roll_no: string;
+  university_roll_no: string;
+  branch: string;
+  batch: string;
+  semester: string;
+  email: string;
+  accepted?: boolean;
+  blocked?: boolean;
+  status?: "accepted" | "rejected" | null;
+};
+
 const formSchema = z.object({
-
-    firstname : z.string().min(2).max(50),
-    lastname : z.string().min(2).max(50),
-    college_roll_no : z.string().min(4).max(50),
-    university_roll_no : z.string().min(5).max(50),
-    branch : z.string().min(3).max(50),
-    batch : z.string(),
-    semester : z.string(),
-    email : z.string().email()
-
-
-})
-
-
-export type formSchemaType = z.infer<typeof formSchema>;
+  firstname: z.string().min(2).max(50),
+  lastname: z.string().min(2).max(50),
+  college_roll_no: z.string().min(4).max(50),
+  university_roll_no: z.string().min(5).max(50),
+  branch: z.string().min(3).max(50),
+  batch: z.string(),
+  semester: z.string(),
+  email: z.string().email(),
+  accepted: z.boolean().optional(),
+  blocked: z.boolean().optional(),
+  status: z.enum(["accepted", "rejected"]).nullable().optional()
+});
 
 export default function ProfileForm() {
     // 1. Define your form.

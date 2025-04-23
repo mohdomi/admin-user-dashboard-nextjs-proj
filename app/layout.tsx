@@ -38,7 +38,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Toaster position="top-center"></Toaster>
-          <div className="relative flex justify-end inset-0 m-2 p-3 px-5 w-full">
+          <div className="NAVBAR relative flex justify-end inset-0 m-2 p-3 px-5 w-full">
             <LandRouter></LandRouter>
             <ModeToggle />
           </div>

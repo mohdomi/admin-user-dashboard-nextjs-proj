@@ -25,6 +25,9 @@ model User {
   batch String
   semester String
   email String @unique
+  accepted Boolean @default(false)
+  blocked Boolean @default(false)
+  status String? @default("pending")
 }
 
 
